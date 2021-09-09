@@ -1,7 +1,16 @@
 <h1>Seja Bem-Vindo</h1>
 <p><strong>Data:</strong> <%=data_br(Date.today)%></p>
-<ul>
-    <li>
-        <%= link_to "Cadastro de Moedas", "/coins" %>
-    </li>
-</ul>
+
+<%= render "menu" %>
+
+<p>
+    Você está em ambiente de <strong><%= nome_ambiente %></strong>
+</p>
+
+<p>
+<strong>Boa tarde, <%=@meu_nome%></strong>
+</p>
+
+<p>
+    <strong>Curso atual:  <%=@nomeCurso%> </strong>
+</p>
