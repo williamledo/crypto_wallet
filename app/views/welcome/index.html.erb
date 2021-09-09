@@ -1,8 +1,7 @@
 <h1>Seja Bem-Vindo</h1>
-<p>William Lêdo</p>
-
-<p>A soma é : <%= 1 + 1%></p>
-<p>Seu nome de trás para frente é: <%= "William".reverse %></p>
-<% a = "minha variavel a"%>
-<p>Imprimindo a variável a: <%= a %></p>
-<p>A data de hoje é: <%= Date.today%></p>
+<p><strong>Data:</strong> <%=data_br(Date.today)%></p>
+<ul>
+    <li>
+        <%= link_to "Cadastro de Moedas", "/coins" %>
+    </li>
+</ul>
