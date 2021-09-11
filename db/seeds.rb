@@ -24,3 +24,5 @@ Coin.create!(
     acronym: "ETH",
     url_image: "https://lh3.googleusercontent.com/proxy/fKw5cgajBFIqbEYFOa_4BtVNWFGhfisIoOE4zFjwbg_ESj-Q5VwHzUkAT9hgPKE7cI5b3aOsILo6zyntkfxt9OmR"
 )
+
+puts "Moedas cadastradas com sucesso!"

@@ -4,9 +4,9 @@ namespace :dev do
     if Rails.env.development?
 
       show_spinner("Apagando DB...") {%x(rails db:drop)}  # OU do %x(rails db:drop) end
-      show_spinner("Criando DB...") { %(rails db:create)}
-      show_spinner("Migrando DB") {%(rails db:migrate)}
-      show_spinner("Populando DB...") {%(rails db:seed)}
+      show_spinner("Criando DB...") {%x(rails db:create)}
+      show_spinner("Migrando DB") {%x(rails db:migrate)}
+      show_spinner("Populando DB...") {%x(rails db:seed)}
 
     else
       puts "Você não está em modo de desenvolvimento"
