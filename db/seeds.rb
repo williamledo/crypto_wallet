@@ -6,23 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+spinner = TTY::Spinner.new("[:spinner] Cadastrando Moedas...")
+    spinner.auto_spin
 
-Coin.create!(
-    description: "Bitcoin",
+coins= [
+
+    {description: "Bitcoin",
     acronym: "BTC",
-    url_image: "https://img2.gratispng.com/20180604/zya/kisspng-bitcoin-com-cryptocurrency-logo-zazzle-kibuba-btc-5b15aa1f157d09.468430171528146463088.jpg"
-)
+    url_image: "https://imagensemoldes.com.br/wp-content/uploads/2020/09/Logo-Bitcoin-PNG.png"
+    },
 
-Coin.create!(
-    description: "Ethereum",
+
+    {description: "Ethereum",
     acronym: "ETH",
     url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/ETHEREUM-YOUTUBE-PROFILE-PIC.png/768px-ETHEREUM-YOUTUBE-PROFILE-PIC.png"
-)
+    },
 
-Coin.create!(
-    description: "Ethereum",
-    acronym: "ETH",
-    url_image: "https://lh3.googleusercontent.com/proxy/fKw5cgajBFIqbEYFOa_4BtVNWFGhfisIoOE4zFjwbg_ESj-Q5VwHzUkAT9hgPKE7cI5b3aOsILo6zyntkfxt9OmR"
-)
 
-puts "Moedas cadastradas com sucesso!"
+    {description: "Dash",
+    acronym: "DASH",
+    url_image: "https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/dash_dashcoin-512.png"
+    }
+    ]
+
+    coins.each do |coin|
+        Coin.find_or_create_by!(coin)
+    end
+    
+
+spinner.success("Concluído")
