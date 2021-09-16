@@ -6,12 +6,74 @@ namespace :dev do
       show_spinner("Apagando DB...") {%x(rails db:drop)}  # OU do %x(rails db:drop) end
       show_spinner("Criando DB...") {%x(rails db:create)}
       show_spinner("Migrando DB") {%x(rails db:migrate)}
-      show_spinner("Populando DB...") {%x(rails db:seed)}
+      %x(rails dev:add_coins)
+      %x(rails dev:add_mining_type)
 
     else
       puts "Você não está em modo de desenvolvimento"
     end
   end
+
+  desc "Cadastra as moedas"
+  task add_coins: :environment do
+
+    show_spinner("Cadastrando moedas...") do
+
+coins= [
+
+    {description: "Bitcoin",
+    acronym: "BTC",
+    url_image: "https://imagensemoldes.com.br/wp-content/uploads/2020/09/Logo-Bitcoin-PNG.png"
+    },
+
+
+    {description: "Ethereum",
+    acronym: "ETH",
+    url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/ETHEREUM-YOUTUBE-PROFILE-PIC.png/768px-ETHEREUM-YOUTUBE-PROFILE-PIC.png"
+    },
+
+
+    {description: "Dash",
+    acronym: "DASH",
+    url_image: "https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/dash_dashcoin-512.png"
+    },
+
+    {description: "Iota",
+    acronym: "IOT",
+    url_image: "https://cryptologos.cc/logos/iota-miota-logo.png"
+    },
+
+    {description: "ZCash",
+    acronym: "ZEC",
+    url_image: "https://img1.gratispng.com/20180329/dbe/kisspng-zcash-cryptocurrency-zerocoin-blockchain-initial-c-crypt-5abcb4f715dfc2.7068541215223165350896.jpg"
+    }
+
+    ]
+
+    coins.each do |coin|
+        Coin.find_or_create_by!(coin)
+      end
+    end
+  end
+
+
+  desc "Cadastra tipos de mineração"
+  task add_mining_type: :environment do 
+    show_spinner("Cadastrando dos tipos de mineração...")do
+    mining_types = [
+
+      {name: "Prof ow Work", acronym: "PoW"},
+      {name: "Proof of Stake", acronym: "PoS"},
+      {name: "Proof of Capacity", acronym: "PoC"}
+
+      ]
+
+      mining_types.each do |mining_type|
+        MiningType.find_or_create_by!(mining_type)
+       end
+    end
+  end
+
 
   private
 
