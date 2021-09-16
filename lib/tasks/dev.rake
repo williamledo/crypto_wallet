@@ -62,9 +62,9 @@ coins= [
     show_spinner("Cadastrando dos tipos de mineração...")do
     mining_types = [
 
-      {name: "Prof ow Work", acronym: "PoW"},
-      {name: "Proof of Stake", acronym: "PoS"},
-      {name: "Proof of Capacity", acronym: "PoC"}
+      {description: "Prof ow Work", acronym: "PoW"},
+      {description: "Proof of Stake", acronym: "PoS"},
+      {description: "Proof of Capacity", acronym: "PoC"}
 
       ]
 
