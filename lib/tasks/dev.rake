@@ -6,8 +6,9 @@ namespace :dev do
       show_spinner("Apagando DB...") {%x(rails db:drop)}  # OU do %x(rails db:drop) end
       show_spinner("Criando DB...") {%x(rails db:create)}
       show_spinner("Migrando DB...") {%x(rails db:migrate)}
-      %x(rails dev:add_coins)
       %x(rails dev:add_mining_type)
+      %x(rails dev:add_coins)
+      
 
     else
       puts "Você não está em modo de desenvolvimento"
@@ -23,29 +24,34 @@ namespace :dev do
     
         {description: "Bitcoin",
         acronym: "BTC",
-        url_image: "https://imagensemoldes.com.br/wp-content/uploads/2020/09/Logo-Bitcoin-PNG.png"
+        url_image: "https://imagensemoldes.com.br/wp-content/uploads/2020/09/Logo-Bitcoin-PNG.png",
+        mining_type: MiningType.all.find_by(acronym: 'PoW')
         },
     
     
         {description: "Ethereum",
         acronym: "ETH",
-        url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/ETHEREUM-YOUTUBE-PROFILE-PIC.png/768px-ETHEREUM-YOUTUBE-PROFILE-PIC.png"
+        url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/ETHEREUM-YOUTUBE-PROFILE-PIC.png/768px-ETHEREUM-YOUTUBE-PROFILE-PIC.png",
+        mining_type: MiningType.all.sample
         },
     
     
         {description: "Dash",
         acronym: "DASH",
-        url_image: "https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/dash_dashcoin-512.png"
+        url_image: "https://cdn4.iconfinder.com/data/icons/crypto-currency-and-coin-2/256/dash_dashcoin-512.png",
+        mining_type: MiningType.all.sample
         },
     
         {description: "Iota",
         acronym: "IOT",
-        url_image: "https://cryptologos.cc/logos/iota-miota-logo.png"
+        url_image: "https://cryptologos.cc/logos/iota-miota-logo.png",
+        mining_type: MiningType.all.sample
         },
     
         {description: "ZCash",
         acronym: "ZEC",
-        url_image: "https://img1.gratispng.com/20180329/dbe/kisspng-zcash-cryptocurrency-zerocoin-blockchain-initial-c-crypt-5abcb4f715dfc2.7068541215223165350896.jpg"
+        url_image: "https://img1.gratispng.com/20180329/dbe/kisspng-zcash-cryptocurrency-zerocoin-blockchain-initial-c-crypt-5abcb4f715dfc2.7068541215223165350896.jpg",
+        mining_type: MiningType.all.sample
         }
     
         ]
