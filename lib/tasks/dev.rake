@@ -68,7 +68,7 @@ namespace :dev do
     show_spinner("Cadastrando tipos de mineração...")do
     mining_types = [
 
-      {description: "Prof ow Work", acronym: "PoW"},
+      {description: "Prof of Work", acronym: "PoW"},
       {description: "Proof of Stake", acronym: "PoS"},
       {description: "Proof of Capacity", acronym: "PoC"}
 
