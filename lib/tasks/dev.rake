@@ -54,17 +54,18 @@ namespace :dev do
         mining_type: MiningType.all.sample
         }
     
-        ]
+      ]
     
         coins.each do |coin|
             Coin.find_or_create_by!(coin)
         end
+
     end
   end
 
-
   desc "Cadastra tipos de mineração"
   task add_mining_type: :environment do 
+
     show_spinner("Cadastrando tipos de mineração...")do
     mining_types = [
 
@@ -76,8 +77,10 @@ namespace :dev do
 
       mining_types.each do |mining_type|
         MiningType.find_or_create_by!(mining_type)
-       end
+      end
+
     end
+    
   end
 
 
